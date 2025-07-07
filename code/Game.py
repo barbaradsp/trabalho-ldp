@@ -1,4 +1,5 @@
 import pygame
+import sys
 from code.Const import *
 from code.Menu import Menu
 from code.Level import Level
@@ -36,4 +37,4 @@ class Game:
                 self.game_state = 'menu'
 
         pygame.quit()
-        quit()
+        sys.exit()

@@ -1,4 +1,5 @@
 import pygame
+import sys
 from code.Const import *
 from code.Player import Player
 from code.World import Tile, Platform, Portal
@@ -68,6 +69,8 @@ class Level:
             self.background_img.fill((135, 206, 235))
 
     def run(self):
+        pygame.mixer_music.load('./asset/Ove Melaa - Times.mp3')
+        pygame.mixer_music.play(-1)
         clock = pygame.time.Clock()
         game_font = pygame.font.Font(None, 80)  # Fonte para a mensagem de morte
 
@@ -77,6 +80,7 @@ class Level:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
+                    sys.exit()
                     quit()
 
             game_status = self.player.update(self.tiles.sprites(), self.moving_platforms.sprites(), self.enemies,
